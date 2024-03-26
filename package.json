@@ -1,0 +1,72 @@
+{
+  "name": "asunder-feathers-v5",
+  "description": "Asunder - FeathersJS v5 Backend Server",
+  "version": "0.2.0",
+  "homepage": "",
+  "private": true,
+  "keywords": [
+    "feathers"
+  ],
+  "author": {
+    "name": "Ahmed Bahar"
+  },
+  "contributors": [],
+  "bugs": {},
+  "engines": {
+    "node": ">= 16.16.0"
+  },
+  "feathers": {
+    "language": "js",
+    "packager": "npm",
+    "database": "mongodb",
+    "framework": "express",
+    "transports": [
+      "rest",
+      "websockets"
+    ],
+    "schema": "json"
+  },
+  "directories": {
+    "lib": "src",
+    "test": "test"
+  },
+  "main": "lib/index",
+  "type": "module",
+  "scripts": {
+    "start": "node src",
+    "dev": "nodemon src/",
+    "prettier": "npx prettier \"**/*.js\" --write",
+    "mocha": "cross-env NODE_ENV=test mocha test/ --recursive --exit",
+    "test": "npm run mocha",
+    "bundle:client": "npm pack --pack-destination ./public"
+  },
+  "dependencies": {
+    "@feathersjs/adapter-commons": "^5.0.14",
+    "@feathersjs/authentication": "^5.0.14",
+    "@feathersjs/authentication-client": "^5.0.14",
+    "@feathersjs/authentication-local": "^5.0.14",
+    "@feathersjs/authentication-oauth": "^5.0.14",
+    "@feathersjs/configuration": "^5.0.14",
+    "@feathersjs/errors": "^5.0.14",
+    "@feathersjs/express": "^5.0.14",
+    "@feathersjs/feathers": "^5.0.14",
+    "@feathersjs/mongodb": "^5.0.14",
+    "@feathersjs/schema": "^5.0.14",
+    "@feathersjs/socketio": "^5.0.14",
+    "@feathersjs/transport-commons": "^5.0.14",
+    "compression": "^1.7.4",
+    "feathers-hooks-common": "^8.1.2",
+    "lodash": "^4.17.21",
+    "mongodb": "^6.3.0",
+    "winston": "^3.11.0"
+  },
+  "devDependencies": {
+    "@feathersjs/cli": "^5.0.14",
+    "@feathersjs/rest-client": "^5.0.14",
+    "axios": "^1.6.3",
+    "cross-env": "^7.0.3",
+    "mocha": "^10.2.0",
+    "nodemon": "^3.0.2",
+    "prettier": "^3.1.1"
+  }
+}
