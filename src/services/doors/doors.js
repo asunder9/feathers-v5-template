@@ -16,8 +16,7 @@ import {
   doorSchema
 } from './doors.schema.js'
 import { DoorService, getOptions } from './doors.class.js'
-import { unique } from '../../hooks/unique.js'
-import { trim } from '../../hooks/trim.js'
+import { trimmer } from '../../hooks/trimmer.js'
 
 export const doorPath = 'doors'
 export const doorMethods = ['find', 'get', 'create', 'patch', 'remove']
@@ -47,8 +46,8 @@ export const door = (app) => {
       all: [
         schemaHooks.validateQuery(doorQueryValidator),
         schemaHooks.resolveQuery(doorQueryResolver),
-        trim(doorSchema.properties),
-        unique(doorSchema.properties)
+        trimmer(doorSchema.properties)
+        // unique(doorSchema.properties)
       ],
       find: [],
       get: [],

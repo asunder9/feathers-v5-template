@@ -7,10 +7,15 @@ This is a nodejs backend template for feathersJS v5 using:
 - Database - MongoDB
 - Schema - [json-schema](https://json-schema.org/)
 
-Changes:
-- adding two custom hooks. `unique` and `trim`. See `validator.js` for registering custom keywords and the hook files in `/hooks/`.
-- Added one-to-one relationship between `doors` and `hardwares` in `doors.schema.js`. `doors` refer to `hardwares` database. 
+## Change Log:
+### v0.3.0 - 27-03-24
+- [x] removed `unique.js` hook, now utilizes mongodb's `createIndex` at the `<service-name>.class.`.
+- [x] added `getSchemaKeysHavingOperator.js` util.
+- [x] modified (`trim.js` renamed to `trimmer.js`) hook to work with deeply nested schema options keywords. 
 
+### v0.2.0 - 26-03-24
+- [x] adding two custom hooks. `unique` and `trim`. See `validator.js` for registering custom keywords and the hook files in `/hooks/`.
+- [x] Added one-to-one relationship between `doors` and `hardwares` in `doors.schema.js`. `doors` refer to `hardwares` database. 
 
 ## Getting Started
 

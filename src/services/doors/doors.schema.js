@@ -11,11 +11,17 @@ export const doorSchema = {
   required: ['_id'],
   properties: {
     _id: ObjectIdSchema(),
-    entity_type: { type: 'string', default: 'doors', readOnly: true },
+    entity_type: { type: 'string', default: 'doors' },
     label: { type: 'string', trim: true },
     door_criptor: { type: 'string', unique: true },
     icon: { type: 'string', default: 'ph-bold ph-door' },
-    description: { type: 'string', trim: true },
+    description: { type: 'object', trim: true },
+    potato: {
+      type: 'object',
+      properties: {
+        x: { type: 'string', trim: true, unique: true }
+      }
+    },
     hardware_id: { type: 'string' } //ref
   }
 }

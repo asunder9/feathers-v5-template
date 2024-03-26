@@ -20,8 +20,8 @@ export const userMethods = ['find', 'get', 'create', 'patch', 'remove']
 
 export * from './users.class.js'
 export * from './users.schema.js'
-import { trim } from '../../hooks/trim.js'
-import { unique } from '../../hooks/unique.js'
+import { trimmer } from '../../hooks/trimmer.js'
+import { unique } from '../../hooks/unique unused.js'
 // A configure function that registers the service and its hooks via `app.configure`
 export const user = (app) => {
   // Register our service on the Feathers application
@@ -37,7 +37,7 @@ export const user = (app) => {
       all: [
         schemaHooks.resolveExternal(userExternalResolver),
         schemaHooks.resolveResult(userResolver),
-        trim(userSchema.properties),
+        trimmer(userSchema.properties),
         unique(userSchema.properties)
       ],
       find: [authenticate('jwt')],

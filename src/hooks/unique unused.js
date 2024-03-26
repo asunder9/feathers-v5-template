@@ -1,24 +1,11 @@
 // before / create,patch / any service
 
 import Errors from '@feathersjs/errors'
-function getKeysWithUniqueTrue(schemaObject) {
-  const keysWithUniqueTrue = []
-
-  // Iterate through each property in the schemaObject
-  for (const key in schemaObject) {
-    // Check if the property has a 'unique' property set to true
-    if (schemaObject[key] && schemaObject[key].unique === true) {
-      keysWithUniqueTrue.push(key) // If found, add the key to the array
-    }
-  }
-
-  // If the array is empty, return falsy value, otherwise return the array
-  return keysWithUniqueTrue.length > 0 ? keysWithUniqueTrue : undefined
-}
+import getSchemaKeysHavingOperator from '../utils/getSchemaKeysHavingOperator.js'
 
 export const unique = (schemaProperties) => async (context) => {
   if (!['create', 'patch'].includes(context.method)) return context // do nothing
-  const uniqueKeys = getKeysWithUniqueTrue(schemaProperties)
+  const uniqueKeys = getSchemaKeysHavingOperator(schemaProperties, 'unique')
   if (!uniqueKeys) return context // do nothing
   console.log('uniqueKeys>>>>>>>>>>>>>>', uniqueKeys)
   if (context.method === 'create') {
